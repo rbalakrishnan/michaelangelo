@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="${project.name}" verbose="${testng.verbosity}" >
+  <test name="JUnit Unit Test" junit="true">
+    <packages>
+       <package name="com.vmware"/>
+    </packages>
+  </test>
+  <test name="TestNG Unit Test" junit="false">
+    <packages>
+       <package name="com.vmware"/>
+    </packages>
+  </test>
+</suite>
