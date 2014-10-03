@@ -2,6 +2,8 @@ package com.vmware;
 
 import static org.testng.Assert.*;
 
+import java.util.regex.Pattern;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -12,7 +14,7 @@ public class EmployeeTest {
 
 	@BeforeMethod
 	public void setUp() {
-		employee = new Employee();
+		employee = new Employee(Pattern.compile("\\d{3}-\\d{2}-\\d{4}"));
 		System.out.println("Construct a new employee per test");
 	}
 
@@ -41,7 +43,6 @@ public class EmployeeTest {
 	@Test
 	public void fixDE30201_SocialSecurityMustBeACertainFormat() {
 		String badSSN = "RamLikesThe49s";
-		Employee employee = new Employee();
 
 		try {
 			employee.setSocialSecurityNumber(badSSN);
