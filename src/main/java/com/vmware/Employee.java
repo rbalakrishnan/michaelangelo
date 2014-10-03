@@ -23,6 +23,9 @@ public class Employee {
 	public void setSocialSecurityNumber(String ssn) {
 		// TODO Auto-generated method stub
 
+		if (ssn.trim().equals(""))
+			throw new IllegalArgumentException("SSN cannot be blank");
+		
 		if (!(pattern.matcher(ssn).matches()))
 			throw new IllegalArgumentException(ssn + " is not a valid SSN");
 		this.ssn = ssn;
